@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
+    <title>Edit Page</title>
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
@@ -30,39 +30,32 @@
     </style>
 </head>
 <body>
-    <h1 th:text="#{content.title}">Hello Page</h1>
-    <table>
-        <form method="post" action="/insert" th:object="${forModel}">
-            <tr>
-                <td><label for="name">이름</label></td>
-                <td><input type="text" name="name" th:value="*{name}"/></td>
-            </tr>
-            <tr>
-                <td><label for="age">나이</label></td>
-                <td><input type="text" name="age" th:value="*{age}"/></td>
-            </tr>
-            <tr>
-                <td><label for="mail">email</label></td>
-                <td><input type="text" name="mail" th:value="*{mail}"/></td>
-            </tr>
-            <tr>
-                <td><label for="memo">메모</label></td>
-                <td><textarea name="memo" th:text="*{memo}" cols="20" rows="5"></textarea> </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit"/> </td>
-            </tr>
-        </form>
-    </table>
-    <hr>
-    <table>
-        <tr><th>ID</th><th>이름</th></tr>
-        <tr th:each="obj:${datalist}">
-            <td th:text="${obj.dataNo}"></td>
-            <td th:text="${obj.name}"></td>
+<h1 th:text="#{content.title}">Edit Page</h1>
+<table>
+    <form method="post" action="/edit" th:object="${forModel}">
+        <input type="hidden" name="dataNo" th:value="*{dataNo}"/>
+        <tr>
+            <td><label for="name">이름</label></td>
+            <td><input type="text" name="name" th:value="*{name}"/> </td>
         </tr>
-    </table>
+        <tr>
+            <td><label for="age">나이</label></td>
+            <td><input type="text" name="age" th:value="*{age}"/> </td>
+        </tr>
+        <tr>
+            <td><label for="mail">email</label></td>
+            <td><input type="text" name="mail" th:value="*{mail}"/> </td>
+        </tr>
+        <tr>
+            <td><label for="memo">메모</label></td>
+            <td><textarea name="memo" th:text="*{memo}" cols="20" rows="5"></textarea> </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit"/> </td>
+        </tr>
+    </form>
+</table>
 
 </body>
 </html>
